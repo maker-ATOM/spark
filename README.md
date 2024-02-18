@@ -2,11 +2,21 @@
 
 ## ToDo
 
+**DESIGN**
+- [x] Base for simulation
+- [ ] Arm for simulation
+
+**SOFTWARE STACK**
+
+- [ ] Nav Stack
 - [ ] Control
-- [ ] SLAM
 - [ ] Cartographer
-- [ ] Camera
+- [ ] Camera Plugin
 - [ ] Fused Odometry
+
+**DOCUMENTATION**
+
+- [ ] GIFs
 
 ## Launch Sequence
 
