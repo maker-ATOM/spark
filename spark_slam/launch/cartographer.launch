@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+	<node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args=" 
+		-configuration_directory $(find spark_slam)/config 
+		-configuration_basename carto.lua" 
+	      output="screen">
+	</node>	
+
+</launch>

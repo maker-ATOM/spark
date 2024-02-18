@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+    <!-- ################### GMAPPING ################### -->
+  
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+         <rosparam command="load" file="$(find spark_slam)/config/gmapping.yaml" />
+         <remap from="scan" to="/scan/merge" />
+    </node>
+
+
+    <!-- ################### RVIZ ################### -->
+
+    <arg default="$(find spark_description)/rviz/slam.rviz" name="rvizconfig" />
+    <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+
+</launch>

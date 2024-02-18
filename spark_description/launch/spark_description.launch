@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- ################### STATE PUBLISHERS ################### -->
+
+
+	<arg default="$(find spark_description)/urdf/spark_description.xacro" name="model"/>
+	<param command="$(find xacro)/xacro $(arg model)" name="robot_description"/>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- ################### RVIZ ################### -->
+
+    <arg default="$(find spark_description)/rviz/description.rviz" name="rvizconfig" />
+    <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+
+</launch>

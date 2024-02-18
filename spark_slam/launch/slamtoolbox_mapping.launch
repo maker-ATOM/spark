@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- ################### SLAM TOOLBOX ################### -->
+
+    <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
+        <rosparam command="load" file="$(find spark_slam)/config/mapper_params_online_async.yaml" />
+      </node>
+  
+    <!-- ################### RVIZ ################### -->
+
+    <arg default="$(find spark_description)/rviz/slam.rviz" name="rvizconfig" />
+    <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+
+</launch>

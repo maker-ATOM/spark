@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot name="spark" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<!--  ##########  DIFF DRIVE PLUGIN  ##########  -->
+
+	<gazebo>
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<rosDebugLevel>na</rosDebugLevel>
+			<updateRate>20</updateRate>
+			<leftJoint>left_wheel_joint</leftJoint>
+			<rightJoint>right_wheel_joint</rightJoint>
+			<wheelSeparation>0.3</wheelSeparation>
+			<wheelDiameter>0.08</wheelDiameter>
+			<wheelAcceleration>1.0</wheelAcceleration>
+			<wheelTorque>20</wheelTorque>
+			<commandTopic>cmd_vel</commandTopic>
+			<odometryTopic>odom</odometryTopic>
+			<odometryFrame>odom</odometryFrame>
+			<robotBaseFrame>base_link</robotBaseFrame>
+			<!-- Same same but diffelent -->
+			<publishTf>True</publishTf>
+			<publishOdomTF>true</publishOdomTF>
+			<!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+			<odometrySource>1</odometrySource>
+			<!-- Publsihed by robot state publisher -->
+			<publishWheelTF>false</publishWheelTF>
+			<publishOdom>true</publishOdom>
+			<publishWheelJointState>true</publishWheelJointState>
+			<legacyMode>false</legacyMode>
+		</plugin>
+	</gazebo>
+
+	<!--  ##########  LIDAR PLUGIN  ##########  -->
+
+	<gazebo reference="front_lidar_sensor">
+		<sensor type="ray" name="front_ydlidar">
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>true</visualize>
+			<update_rate>10</update_rate>
+			<ray>
+				<scan>
+					<horizontal>
+						<samples>540</samples>
+						<resolution>1</resolution>
+						<min_angle>-2.35619</min_angle>
+						<max_angle>2.35619</max_angle>
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.2</min>
+					<max>5.0</max>
+					<resolution>0.01</resolution>
+				</range>
+				<noise>
+					<type>gaussian</type>
+					<mean>0.0</mean>
+					<stddev>0.01</stddev>
+				</noise>
+			</ray>
+			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+				<topicName>/scan/front</topicName>
+				<frameName>front_lidar_sensor</frameName>
+			</plugin>
+		</sensor>
+	</gazebo>
+
+	<gazebo reference="rear_lidar_sensor">
+		<sensor type="ray" name="rear_ydlidar">
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>true</visualize>
+			<update_rate>10</update_rate>
+			<ray>
+				<scan>
+					<horizontal>
+						<samples>540</samples>
+						<resolution>1</resolution>
+						<min_angle>0.78539</min_angle>
+						<max_angle>5.49777</max_angle>
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.2</min>
+					<max>5.0</max>
+					<resolution>0.01</resolution>
+				</range>
+				<noise>
+					<type>gaussian</type>
+					<mean>0.0</mean>
+					<stddev>0.01</stddev>
+				</noise>
+			</ray>
+			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+				<topicName>/scan/rear</topicName>
+				<frameName>rear_lidar_sensor</frameName>
+			</plugin>
+		</sensor>
+	</gazebo>
+
+	<!--  ##########  IMu PLUGIN  ##########  -->
+
+	<gazebo reference="imu_link">
+		<gravity>true</gravity>
+		<sensor name="imu_sensor" type="imu">
+			<always_on>true</always_on>
+			<update_rate>10</update_rate>
+			<visualize>true</visualize>
+			<topic>imu</topic>
+			<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+				<topicName>imu</topicName>
+				<bodyName>imu_link</bodyName>
+				<updateRateHZ>10.0</updateRateHZ>
+				<gaussianNoise>0.0</gaussianNoise>
+				<xyzOffset>0 0 0</xyzOffset>
+				<rpyOffset>0 0 0</rpyOffset>
+				<frameName>imu_link</frameName>
+				<initialOrientationAsReference>false</initialOrientationAsReference>
+			</plugin>
+			<pose>0 0 0 0 0 0</pose>
+		</sensor>
+	</gazebo>
+
+</robot>
