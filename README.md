@@ -8,7 +8,6 @@
 
 **SOFTWARE STACK**
 
-- [ ] Nav Stack
 - [ ] Control
 - [ ] Cartographer
 - [ ] Camera Plugin
@@ -74,8 +73,8 @@ roslaunch spark_slam spark_slam.launch
 # SLAM ToolBox Mapper
 # MoveBase
 ```
-
-For arena to load in gazebo copy `arena` directory within `spark_gazebo` package to `~/.gazebo/models `
+> [!NOTE]
+> For arena to load in gazebo copy `arena` directory within `spark_gazebo` package to `~/.gazebo/models `
 
 ## Packages
 
@@ -108,9 +107,9 @@ For arena to load in gazebo copy `arena` directory within `spark_gazebo` package
 
 - Navigation
   - Launch
-   - spark_amcl ( Localization of the robot in the env )
-   - spark_move_base ( Navigation entity )
-   - spark_navigation ( To start map server, amcl and move_base )
+     - spark_amcl ( Localization of the robot in the env )
+     - spark_move_base ( Navigation entity )
+     - spark_navigation ( To start map server, amcl and move_base )
 
 ## Issues
 
