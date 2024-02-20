@@ -35,7 +35,7 @@ roslaunch spark_slam mapping.launch
 
 OR 
 
-roslaunch spark_gazebo slamtoolbox_mapping.launch
+roslaunch spark_slam slamtoolbox_mapping.launch
 # SlamToolBox
 ```
 
@@ -75,6 +75,8 @@ roslaunch spark_slam spark_slam.launch
 # MoveBase
 ```
 
+For arena to load in gazebo copy `arena` directory within `spark_gazebo` package to `~/.gazebo/models `
+
 ## Packages
 
 - Description
@@ -91,6 +93,7 @@ roslaunch spark_slam spark_slam.launch
   - Launch
     - empty_world ( Empty simulation env with robot )
     - turtlebot3_house ( Indoor simulation env with robot )
+    - arena ( Arena for Robocon 24 )
 
 - Control
   - Node
