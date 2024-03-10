@@ -35,7 +35,7 @@
 	<gazebo reference="front_lidar_sensor">
 		<sensor type="ray" name="front_ydlidar">
 			<pose>0 0 0 0 0 0</pose>
-			<visualize>true</visualize>
+			<visualize>false</visualize>
 			<update_rate>10</update_rate>
 			<ray>
 				<scan>
@@ -67,7 +67,7 @@
 	<gazebo reference="rear_lidar_sensor">
 		<sensor type="ray" name="rear_ydlidar">
 			<pose>0 0 0 0 0 0</pose>
-			<visualize>true</visualize>
+			<visualize>false</visualize>
 			<update_rate>10</update_rate>
 			<ray>
 				<scan>

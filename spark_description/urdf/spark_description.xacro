@@ -296,19 +296,13 @@
   <joint name="front_lidar_sensor_joint" type="fixed">
     <parent link="front_lidar_base" />
     <child link="front_lidar_sensor" />
-    <!-- Actual -->
     <origin xyz="0.035 0 0.045" rpy="0 0 0" />
-    <!-- For Robocon  -->
-    <!-- <origin xyz="0.145 0 -0.045" rpy="0 0 0" /> -->
   </joint>
 
   <joint name="rear_lidar_sensor_joint" type="fixed">
     <parent link="rear_lidar_base" />
     <child link="rear_lidar_sensor" />
-    <!-- Actual -->
     <origin xyz="0.035 0 0.045" rpy="0 0 0" />
-    <!-- For Robocon  -->
-    <!-- <origin xyz="-0.075 0 -0.045" rpy="0 0 0" /> -->
   </joint>
 
   <joint name="merger_lidar_joint" type="fixed">
@@ -316,8 +310,6 @@
     <child link="merge_lidar" />
     <!-- Actual -->
     <origin xyz="0.0 0.0 0.161" rpy="0 0 0" />
-    <!-- For Robocon  -->
-    <!-- <origin xyz="0.0 0.0 0.05" rpy="0 0 0" /> -->
   </joint>
 
   <joint name="imu_joint" type="fixed">
