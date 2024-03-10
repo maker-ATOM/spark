@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<robot name="spark" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find spark_description)/urdf/materials.xacro" />
+
+  <!-- <xacro:include filename="$(find spark_gazebo)/gazebo/materials.gazebo" /> -->
+  <xacro:include filename="$(find spark_gazebo)/gazebo/physics.gazebo" />
+  <xacro:include filename="$(find spark_gazebo)/gazebo/plugins.gazebo" />
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-1.8999995568076314e-16 -1.519999645446105e-16 0.06640496427214614" rpy="0 0 0" />
+      <mass value="1.0148048513223018" />
+      <inertia ixx="0.019433" iyy="0.01845" izz="0.034221" ixy="0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="cyan" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="left_wheel">
+    <inertial>
+      <origin xyz="4.777250796293949e-17 0.004523461298064829 6.938893903907228e-18" rpy="0 0 0" />
+      <mass value="0.08590144455112657" />
+      <inertia ixx="5.4e-05" iyy="8.9e-05" izz="5.4e-05" ixy="0.0" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0 -0.15 -0.04" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/left_wheel.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="black" /> -->
+    </visual>
+    <collision>
+      <origin xyz="-0.0 -0.15 -0.04" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/left_wheel.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_wheel">
+    <inertial>
+      <origin xyz="1.0074933496468999e-16 -0.004523461298064718 6.938893903907228e-18" rpy="0 0 0" />
+      <mass value="0.08590144455112657" />
+      <inertia ixx="5.4e-05" iyy="8.9e-05" izz="5.4e-05" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0 0.15 -0.04" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/right_wheel.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="black" /> -->
+    </visual>
+    <collision>
+      <origin xyz="-0.0 0.15 -0.04" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/right_wheel.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bl_caster">
+    <inertial>
+      <origin xyz="0.01499999999951665 0.015000000000000041 -0.022526171875000035" rpy="0 0 0" />
+      <mass value="0.002333836822474266" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.155 0.155 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/bl_caster.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="white" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.175 0.175 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/bl_caster.stl"
+          scale="0.001 0.001 0.001" />> </geometry>
+    </collision>
+  </link>
+
+  <link name="br_caster">
+    <inertial>
+      <origin xyz="0.01499999999951665 0.015000000000000041 -0.022526171875000035" rpy="0 0 0" />
+      <mass value="0.002333836822474266" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.155 0.155 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/br_caster.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="white" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.175 0.175 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/br_caster.stl"
+          scale="0.001 0.001 0.001" />> </geometry>
+    </collision>
+  </link>
+
+  <link name="fr_caster">
+    <inertial>
+      <origin xyz="0.01499999999951665 0.015000000000000041 -0.022526171875000035" rpy="0 0 0" />
+      <mass value="0.002333836822474266" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.155 0.155 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/fr_caster.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="white" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.175 0.175 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/fr_caster.stl"
+          scale="0.001 0.001 0.001" />> </geometry>
+    </collision>
+  </link>
+
+  <link name="fl_caster">
+    <inertial>
+      <origin xyz="0.01499999999951665 0.015000000000000041 -0.022526171875000035" rpy="0 0 0" />
+      <mass value="0.002333836822474266" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.155 0.155 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/fl_caster.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="white" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.175 0.175 -0.01575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/fl_caster.stl"
+          scale="0.001 0.001 0.001" />> </geometry>
+    </collision>
+  </link>
+
+  <link name="front_lidar_base">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <mass value="0.0969073180413002" />
+      <inertia ixx="2.8e-05" iyy="5.6e-05" izz="6.5e-05" ixy="0.0" iyz="0.0" ixz="9e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.067 0.0 -0.148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/front_lidar_base.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="orange" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.067 0.0 -0.148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/front_lidar_base.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_lidar_base">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <mass value="0.0969073180413002" />
+      <inertia ixx="2.8e-05" iyy="5.6e-05" izz="6.5e-05" ixy="0.0" iyz="0.0" ixz="9e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.067 0.0 -0.148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/rear_lidar_base.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="orange" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.067 0.0 -0.148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/rear_lidar_base.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_lidar_sensor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <mass value="0.0969073180413002" />
+      <inertia ixx="2.8e-05" iyy="5.6e-05" izz="6.5e-05" ixy="0.0" iyz="0.0" ixz="9e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/lidar_top.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <!-- <material name="orange" /> -->
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find spark_description)/meshes/lidar_top.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wheel_joint" type="continuous">
+    <origin xyz="0.0 0.15 0.04" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="left_wheel" />
+    <axis xyz="0.0 1.0 0.0" />
+  </joint>
+
+  <joint name="right_wheel_joint" type="continuous">
+    <origin xyz="0.0 -0.15 0.04" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="right_wheel" />
+    <axis xyz="0.0 1.0 0.0" />
+  </joint>
+
+  <joint name="base_link_bl_caster" type="fixed">
+    <origin xyz="-0.17 0.17 0.01575" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="bl_caster" />
+  </joint>
+
+  <joint name="base_link_br_caster" type="fixed">
+    <origin xyz="-0.17 -0.17 0.01575" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="br_caster" />
+  </joint>
+
+  <joint name="base_link_fl_caster" type="fixed">
+    <origin xyz="0.17 0.17 0.01575" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="fl_caster" />
+  </joint>
+
+  <joint name="base_link_fr_caster" type="fixed">
+    <origin xyz="0.17 -0.17 0.01575" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="fr_caster" />
+  </joint>
+
+  <joint name="front_scan_base" type="fixed">
+    <parent link="base_link" />
+    <child link="front_lidar_base" />
+    <origin xyz="0.115 0 0.116" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rear_scan_base" type="fixed">
+    <parent link="base_link" />
+    <child link="rear_lidar_base" />
+    <origin xyz="-0.185 0 0.116" rpy="0 0 0" />
+  </joint>
+
+  <joint name="front_lidar_sensor_joint" type="fixed">
+    <parent link="front_lidar_base" />
+    <child link="front_lidar_sensor" />
+    <origin xyz="0.12 0 0.045" rpy="0 0 0" />
+  </joint>
+
+</robot>

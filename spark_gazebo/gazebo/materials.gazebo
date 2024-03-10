@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<robot name="spark" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Grey" />
+<xacro:property name="wheel_color" value="Gazebo/Black" />
+<xacro:property name="lidar_base_color" value="Gazebo/Orange" />
+<xacro:property name="lidar_top_color" value="Gazebo/Blue" />
+<xacro:property name="caster_color" value="Gazebo/DarkGrey" />
+
+
+<!--  ##########  BODY COLOR  ##########  -->
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+
+<!--  ##########  WHEEL COLOR  ##########  -->
+
+<gazebo reference="left_wheel">
+  <material>${wheel_color}</material>
+</gazebo>
+
+<gazebo reference="right_wheel">
+  <material>${wheel_color}</material>
+</gazebo>
+
+
+
+<!--  ##########  CASTER COLOR  ##########  -->
+
+<gazebo reference="fl_caster">
+  <material>${caster_color}</material>
+</gazebo>
+
+<gazebo reference="fr_caster">
+  <material>${caster_color}</material>
+</gazebo>
+
+<gazebo reference="bl_caster">
+  <material>${caster_color}</material>
+</gazebo>
+
+<gazebo reference="br_caster">
+  <material>${caster_color}</material>
+</gazebo>
+
+<!--  ##########  LIDAR COLOR  ##########  -->
+
+<gazebo reference="front_lidar_base">
+  <material>${lidar_base_color}</material>
+</gazebo>
+
+<gazebo reference="rear_lidar_base">
+  <material>${lidar_base_color}</material>
+</gazebo>
+
+</robot>
