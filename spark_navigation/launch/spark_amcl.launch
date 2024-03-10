@@ -1,9 +1,9 @@
 <launch>
 
     <arg name="scan_topic"     default="/scan/merge"/>
-    <arg name="initial_pose_x" default="-6.5"/>
-    <arg name="initial_pose_y" default="-3.0"/>
-    <arg name="initial_pose_a" default="1.57"/>
+    <arg name="initial_pose_x" default="0.0"/>
+    <arg name="initial_pose_y" default="0.0"/>
+    <arg name="initial_pose_a" default="0.0"/>
 
     <node pkg="amcl" type="amcl" name="amcl">
   

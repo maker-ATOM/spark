@@ -1,22 +1,5 @@
 # SPARK
 
-## ToDo
-
-**DESIGN**
-- [x] Base for simulation
-- [ ] Arm for simulation
-
-**SOFTWARE STACK**
-
-- [ ] Control
-- [ ] Cartographer
-- [ ] Camera Plugin
-- [ ] Fused Odometry
-
-**DOCUMENTATION**
-
-- [ ] GIFs
-
 ## Launch Sequence
 
 **MAP GENERATION**
@@ -29,13 +12,18 @@ roslaunch spark_gazebo spark_playground.launch
 ```
 
 ```py
-roslaunch spark_slam mapping.launch
+roslaunch spark_slam gmapping.launch
 # Gmapping
 
 OR 
 
 roslaunch spark_slam slamtoolbox_mapping.launch
 # SlamToolBox
+
+OR 
+
+roslaunch spark_slam cartographer.launch
+# Cartographer
 ```
 
 ```py
@@ -104,6 +92,7 @@ roslaunch spark_slam spark_slam.launch
     - gmapping ( map generation using gmapping package )
     - cartographer ( map generation using cartographer )
     - slamtoolbox_mapping ( map generation using slamtoolbox )
+    - spark_slam ( slam using any of the above mapping agent )
 
 - Navigation
   - Launch

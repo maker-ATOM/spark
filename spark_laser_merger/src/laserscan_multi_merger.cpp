@@ -21,39 +21,39 @@ using namespace laserscan_multi_merger;
 
 class LaserscanMerger
 {
-	public:
-		LaserscanMerger();
-		void scanCallback(const sensor_msgs::LaserScan::ConstPtr &scan, std::string topic);
-		void pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPointCloud2 *merged_cloud);
-		void reconfigureCallback(laserscan_multi_mergerConfig &config, uint32_t level);
+public:
+	LaserscanMerger();
+	void scanCallback(const sensor_msgs::LaserScan::ConstPtr &scan, std::string topic);
+	void pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPointCloud2 *merged_cloud);
+	void reconfigureCallback(laserscan_multi_mergerConfig &config, uint32_t level);
 
-	private:
-		ros::NodeHandle node_;
-		laser_geometry::LaserProjection projector_;
-		tf::TransformListener tfListener_;
+private:
+	ros::NodeHandle node_;
+	laser_geometry::LaserProjection projector_;
+	tf::TransformListener tfListener_;
 
-		ros::Publisher point_cloud_publisher_;
-		ros::Publisher laser_scan_publisher_;
-		vector<ros::Subscriber> scan_subscribers;
-		vector<bool> clouds_modified;
+	ros::Publisher point_cloud_publisher_;
+	ros::Publisher laser_scan_publisher_;
+	vector<ros::Subscriber> scan_subscribers;
+	vector<bool> clouds_modified;
 
-		vector<pcl::PCLPointCloud2> clouds;
-		vector<string> input_topics;
+	vector<pcl::PCLPointCloud2> clouds;
+	vector<string> input_topics;
 
-		void laserscan_topic_parser();
+	void laserscan_topic_parser();
 
-		double angle_min;
-		double angle_max;
-		double angle_increment;
-		double time_increment;
-		double scan_time;
-		double range_min;
-		double range_max;
+	double angle_min;
+	double angle_max;
+	double angle_increment;
+	double time_increment;
+	double scan_time;
+	double range_min;
+	double range_max;
 
-		string destination_frame;
-		string cloud_destination_topic;
-		string scan_destination_topic;
-		string laserscan_topics;
+	string destination_frame;
+	string cloud_destination_topic;
+	string scan_destination_topic;
+	string laserscan_topics;
 };
 
 void LaserscanMerger::reconfigureCallback(laserscan_multi_mergerConfig &config, uint32_t level)
@@ -187,12 +187,12 @@ void LaserscanMerger::scanCallback(const sensor_msgs::LaserScan::ConstPtr &scan,
 
 		for (int i = 1; i < clouds_modified.size(); i++)
 		{
-			#if PCL_VERSION_COMPARE(>=, 1, 10, 0)
-				pcl::concatenate(merged_cloud, clouds[i], merged_cloud);
-			#else
-				pcl::concatenatePointCloud(merged_cloud, clouds[i], merged_cloud);
-			#endif
-				clouds_modified[i] = false;
+#if PCL_VERSION_COMPARE(>=, 1, 10, 0)
+			pcl::concatenate(merged_cloud, clouds[i], merged_cloud);
+#else
+			pcl::concatenatePointCloud(merged_cloud, clouds[i], merged_cloud);
+#endif
+			clouds_modified[i] = false;
 		}
 
 		point_cloud_publisher_.publish(merged_cloud);
@@ -216,11 +216,14 @@ void LaserscanMerger::pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPo
 	output->range_min = this->range_min;
 	output->range_max = this->range_max;
 
+	// uint32_t ranges_size = std::ceil((output->angle_max - output->angle_min) / output->angle_increment) + 1;
 	uint32_t ranges_size = std::ceil((output->angle_max - output->angle_min) / output->angle_increment) - 1;
 	output->ranges.assign(ranges_size, output->range_max + 1.0);
+	output->intensities.assign(ranges_size, output->range_max + 1.0);
 
 	for (int i = 0; i < points.cols(); i++)
 	{
+
 		const float &x = points(0, i);
 		const float &y = points(1, i);
 		const float &z = points(2, i);
@@ -246,6 +249,7 @@ void LaserscanMerger::pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPo
 			continue;
 		}
 		int index = (angle - output->angle_min) / output->angle_increment;
+		output->intensities[index] = 0.0;
 
 		if (output->ranges[index] * output->ranges[index] > range_sq)
 			output->ranges[index] = sqrt(range_sq);

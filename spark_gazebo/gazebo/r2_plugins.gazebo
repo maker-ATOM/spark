@@ -1,41 +1,66 @@
 <?xml version="1.0"?>
 <robot name="spark" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<!--  ##########  DIFF DRIVE PLUGIN  ##########  -->
+	<!--  ##########  SKID STEER PLUGIN  ##########  -->
 
 	<gazebo>
-		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-			<rosDebugLevel>na</rosDebugLevel>
-			<updateRate>20</updateRate>
-			<leftJoint>left_wheel_joint</leftJoint>
-			<rightJoint>right_wheel_joint</rightJoint>
+		<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+			<updateRate>100.0</updateRate>
+			<robotNamespace>/</robotNamespace>
+			<leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
+			<rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
+			<leftRearJoint>rear_left_wheel_joint</leftRearJoint>
+			<rightRearJoint>rear_right_wheel_joint</rightRearJoint>
 			<wheelSeparation>0.3</wheelSeparation>
 			<wheelDiameter>0.08</wheelDiameter>
-			<wheelAcceleration>1.0</wheelAcceleration>
-			<wheelTorque>20</wheelTorque>
+			<robotBaseFrame>base_link</robotBaseFrame>
+			<torque>20</torque>
+			<topicName>cmd_vel</topicName>
+			<broadcastTF>true</broadcastTF>
 			<commandTopic>cmd_vel</commandTopic>
 			<odometryTopic>odom</odometryTopic>
 			<odometryFrame>odom</odometryFrame>
-			<robotBaseFrame>base_link</robotBaseFrame>
-			<!-- Same same but diffelent -->
-			<publishTf>true</publishTf>
-			<publishOdomTF>true</publishOdomTF>
-			<!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-			<odometrySource>1</odometrySource>
-			<!-- Publsihed by robot state publisher -->
-			<publishWheelTF>false</publishWheelTF>
-			<publishOdom>true</publishOdom>
-			<publishWheelJointState>true</publishWheelJointState>
-			<legacyMode>false</legacyMode>
+			<covariance_x>0.000100</covariance_x>
+			<covariance_y>0.000100</covariance_y>
+			<covariance_yaw>0.010000</covariance_yaw>
+
 		</plugin>
 	</gazebo>
 
+		<!--  ##########  DIFF DRIVE PLUGIN  ##########  -->
+<!-- 
+		<gazebo>
+			<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+				<rosDebugLevel>na</rosDebugLevel>
+				<updateRate>20</updateRate>
+				<leftJoint>front_left_wheel_joint</leftJoint>
+				<rightJoint>front_right_wheel_joint</rightJoint>
+				<wheelSeparation>0.3</wheelSeparation>
+				<wheelDiameter>0.08</wheelDiameter>
+				<wheelAcceleration>1.0</wheelAcceleration>
+				<wheelTorque>20</wheelTorque>
+				<commandTopic>cmd_vel</commandTopic>
+				<odometryTopic>odom</odometryTopic>
+				<odometryFrame>odom</odometryFrame>
+				<robotBaseFrame>base_link</robotBaseFrame>
+
+				<publishTf>false</publishTf>
+				<publishOdomTF>false</publishOdomTF>
+				<odometrySource>1</odometrySource>
+				<publishWheelTF>false</publishWheelTF>
+				<publishOdom>true</publishOdom>
+				<publishWheelJointState>true</publishWheelJointState>
+				<legacyMode>false</legacyMode>
+			</plugin>
+		</gazebo> -->
+
+		
 	<!--  ##########  LIDAR PLUGIN  ##########  -->
 
 	<gazebo reference="front_lidar_sensor">
 		<sensor type="ray" name="front_ydlidar">
 			<pose>0 0 0 0 0 0</pose>
-			<visualize>true</visualize>
+			<visualize>false</visualize>
 			<update_rate>10</update_rate>
 			<ray>
 				<scan>
@@ -67,7 +92,7 @@
 	<gazebo reference="rear_lidar_sensor">
 		<sensor type="ray" name="rear_ydlidar">
 			<pose>0 0 0 0 0 0</pose>
-			<visualize>true</visualize>
+			<visualize>false</visualize>
 			<update_rate>10</update_rate>
 			<ray>
 				<scan>

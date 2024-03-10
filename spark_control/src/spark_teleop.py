@@ -13,35 +13,27 @@ msg = """
 Reading from the keyboard  and Publishing to Twist!
 ---------------------------
 Moving around:
-   u    i    o
-   j    k    l
-   m    ,    .
-
-anything else : stop
-q/z : increase/decrease max speeds by 0.01 m/s
-w/x : increase/decrease only linear speed by 0.01 m/s
-e/c : increase/decrease only angular speed by 0.01 m/s
+        w     
+   a    s    d
+             
+space : stop
+i/k : increase/decrease only linear speed by 0.01 m/s
+j/l : increase/decrease only angular speed by 0.1 rad/s
 CTRL-C to quit
 """
 
 moveBindings = {
-        'i':(1,0,0,0),
-        'o':(1,0,0,-1),
-        'j':(0,0,0,1),
-        'l':(0,0,0,-1),
-        'u':(1,0,0,1),
-        ',':(-1,0,0,0),
-        '.':(-1,0,0,1),
-        'm':(-1,0,0,-1),
+        'w':(1,0,0,0),
+        'a':(0,0,0,1),
+        'd':(0,0,0,-1),
+        's':(-1,0,0,0)
     }
 
 speedBindings={
-        'q':(0.01,0.01),
-        'z':(-0.01,-0.01),
-        'w':(0.01,0),
-        'x':(-0.01,0),
-        'e':(0,0.01),
-        'c':(0,-0.01),
+        'i':(0.01,0),
+        'k':(-0.01,0),
+        'j':(0,0.1),
+        'l':(0,-0.1),
     }
 
 class PublishThread(threading.Thread):
@@ -143,8 +135,8 @@ if __name__=="__main__":
 
     rospy.init_node('teleop_twist_keyboard')
 
-    speed = rospy.get_param("~speed", 0.3)
-    turn = rospy.get_param("~turn", 1.5)
+    speed = rospy.get_param("~speed", 0.25)
+    turn = rospy.get_param("~turn", 1.0)
     repeat = rospy.get_param("~repeat_rate", 0.0)
     key_timeout = rospy.get_param("~key_timeout", 0.0)
     if key_timeout == 0.0:
@@ -175,7 +167,7 @@ if __name__=="__main__":
                 tempspeed = speed + speedBindings[key][0]
                 tempturn = turn + speedBindings[key][1]
                 
-                if 0.0 < tempspeed < 0.21 and 0.0 < tempturn < 2.35 :
+                if 0.0 <= tempspeed < 0.5 and 0.0 <= tempturn <= 3.0 :
                     speed = speed + speedBindings[key][0]
                     turn = turn + speedBindings[key][1]
                     

@@ -10,13 +10,13 @@
 
     <!-- ################### GAZEBO ################### -->
 
-    <arg name="x_pos" default="2.0" />
-    <arg name="y_pos" default="2.0" />
-    <arg name="z_pos" default="0.0" />
+    <arg name="x_pos" default="-4.0" />
+    <arg name="y_pos" default="-2.0" />
+    <arg name="z_pos" default="0.2" />
     <arg name="yaw" default="0.0" />
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find spark_gazebo)/worlds/indoor.world" />
+        <arg name="world_name" value="$(find spark_gazebo)/worlds/house.world" />
         <arg name="paused" value="false" />
         <arg name="use_sim_time" value="true" />
         <arg name="gui" value="true" />
@@ -28,9 +28,8 @@
         args="-param robot_description -urdf -model spark -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw)"
         name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" />
 
+    <!-- ################### LASER MERGER ################### -->
 
-    <!-- ################### LASER MERGE ################### -->
-
-    <!-- <include file="$(find spark_laser_merger)/launch/laser_merger.launch"></include> -->
+    <include file="$(find spark_laser_merger)/launch/laser_merger.launch"></include>
 
 </launch>

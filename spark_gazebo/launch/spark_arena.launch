@@ -4,14 +4,17 @@
 
     <!-- ################### STATE PUBLISHERS ################### -->
 
-    <param command="$(find xacro)/xacro $(find spark_description)/urdf/spark_description.xacro"
+    <param command="$(find xacro)/xacro $(find spark_description)/urdf/r2.xacro"
         name="robot_description" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
     <!-- ################### GAZEBO ################### -->
 
     <arg name="x_pos" default="-5.5" />
-    <arg name="y_pos" default="-2.5" />
+    <arg name="y_pos" default="-5.5" />
     <arg name="z_pos" default="0.2" />
     <arg name="yaw" default="1.57" />
 

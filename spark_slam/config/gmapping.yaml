@@ -45,7 +45,7 @@ xmax: 10.0
 ymax: 10.0
 
 # Resolution 
-delta: 0.05
+delta: 0.02
 llsamplerange: 0.02
 llsamplestep: 0.02
 lasamplerange: 0.05
