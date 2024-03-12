@@ -1,11 +1,17 @@
+#  set thresholds on obstacle information put into the costmap
 obstacle_range: 3.0
 raytrace_range: 3.5
 
-footprint: [[-0.21, -0.21], [-0.21, 0.21], [0.21, 0.21], [0.21, -0.21]]
-#robot_radius: 0.105
+# Purposefully added slightly greater to avoid collision
+footprint: [[-0.22, -0.22], [-0.22, 0.22], [0.22, 0.22], [0.22, -0.22]]
 
-inflation_radius: 0.2
-cost_scaling_factor: 3.0
+#   how far away the zero cost point is from the obstacle
+# inflation_radius: 2.0
+inflation_radius: 0.75 # For house
+
+# inversely proportional to the cost of a cell.Setting it higher will make the decay curve more steep.
+# cost_scaling_factor: 1.5
+cost_scaling_factor: 3.0 # For house
 
 map_type: costmap
 observation_sources: scan

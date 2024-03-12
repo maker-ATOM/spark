@@ -6,9 +6,14 @@ local_costmap:
   publish_frequency: 10.0
   transform_tolerance: 0.5  
 
+  # whether or not the costmap should initialize itself based on a map served by the map_server  
   static_map: false  
+
+  # the costmap will remain centered around the robot as the robot moves through the world
   rolling_window: true
-  width: 1.5
-  height: 1.5
-  resolution: 0.02
+
+
+  width: 2.0
+  height: 2.0
+  resolution: 0.02 # (meters/cell)
   
