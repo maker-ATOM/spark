@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find spark_navigation)/maps/arena.yaml" />
+    <arg name="map_file" default="$(find spark_navigation)/maps/house.yaml" />
     <arg name="move_forward_only" default="false" />
 
     <!-- ################### MAP SERVER ################### -->

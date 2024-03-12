@@ -5,7 +5,7 @@
 **MAP GENERATION**
 
 ```py
-roslaunch spark_gazebo spark_playground.launch
+roslaunch spark_gazebo spark_house.launch
 # Robot State Publishers for the robot
 # Spawns robot in gazebo
 # LaserScan Merger
