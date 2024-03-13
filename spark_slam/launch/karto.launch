@@ -1,7 +1,15 @@
 <launch>
   
-  <!-- slam_karto -->
+      <!-- ################### KARTO ################### -->
+
   <node pkg="slam_karto" type="slam_karto" name="slam_karto" output="screen">
     <rosparam command="load" file="$(find spark_slam)/config/karto_mapper_params.yaml" />
   </node>
+
+      <!-- ################### RVIZ ################### -->
+
+      <arg default="$(find spark_description)/rviz/slam.rviz" name="rvizconfig" />
+      <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+
+      
 </launch>

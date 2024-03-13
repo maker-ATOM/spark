@@ -99,3 +99,5 @@ roslaunch spark_slam spark_slam.launch
      - spark_amcl ( Localization of the robot in the env )
      - spark_move_base ( Navigation entity )
      - spark_navigation ( To start map server, amcl and move_base )
+  - Node
+    - **Dynamic prohibition layer** 

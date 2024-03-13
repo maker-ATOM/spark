@@ -19,6 +19,7 @@ Check performance in move_forward and in case of stuck and back off recover mode
 - [x] Control
 - [x] Cartographer
 - [x] Friction of wheels, bot slips
+- [ ] Prohibition Layer
 - [ ] Behavior tree
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent
@@ -28,3 +29,10 @@ Check performance in move_forward and in case of stuck and back off recover mode
 **DOCUMENTATION**
 
 - [ ] GIFs
+  - [ ] Gmapping
+  - [ ] Slamtoolbox
+  - [ ] Cartographer
+  - [ ] Navigation in the map
+  - [ ] Prohibition Layer
+  - [ ] Dynamic prohibition
+  - [ ] Navigation with PoseArray
