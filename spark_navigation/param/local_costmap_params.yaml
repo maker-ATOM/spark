@@ -7,7 +7,7 @@ local_costmap:
   transform_tolerance: 0.5  
 
   # whether or not the costmap should initialize itself based on a map served by the map_server  
-  static_map: false  
+  static_map: true # Should be set to true if want to reflect the features 
 
   # the costmap will remain centered around the robot as the robot moves through the world
   rolling_window: true
