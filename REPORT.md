@@ -22,3 +22,23 @@ Works good
 5. Karto
 
 6. frontier_exploration
+
+## Dynamic Prohibition Layer
+
+Map server has service which allows to change the map on the go, so we can simple call the service and provide it the url of the map that is to be updated. To call the serive we have to write a simple script.
+
+**Logical Flow**
+
+- Read the .yaml/.json file
+- Add the polygon to the map file 
+- call the service
+
+**Features**
+
+- Edits the same map, so ROS PARAM to get map file name
+- ROS param to get package name where the map is stored
+- Draws using polygon method as well as using lines using coordinate pairs
+
+Do we really need to give the path of package as a param? No we can use the find method within launch file to give the full path of map file
+
+Could not get the yaml-cpp link to source code so shifting to python

@@ -19,7 +19,14 @@ Check performance in move_forward and in case of stuck and back off recover mode
 - [x] Control
 - [x] Cartographer
 - [x] Friction of wheels, bot slips
-- [ ] Prohibition Layer
+- [x] Prohibition Layer
+  - [x] ROS arg for map_file name
+  - [x] Read the .yaml/.json file
+  - [x] Include true or false to remove/add the polygon from map
+  - [x] Include multi shape filled polygon  (Use other method to draw the shape instead of line)
+  - [x] Add the polygon to the map file 
+  - [x] call the service
+  - [x] Roslog not working in launch file
 - [ ] Behavior tree
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent

@@ -64,6 +64,13 @@ roslaunch spark_slam spark_slam.launch
 > [!NOTE]
 > For arena to load in gazebo copy `arena` directory within `spark_gazebo` package to `~/.gazebo/models `
 
+**DYNAMIC PROHIBITED SECTOR**
+
+```py
+roslaunch spark_navigation prohibitor.launch
+# Verify path to map and .yaml file
+```
+
 ## Packages
 
 - Description
@@ -100,4 +107,4 @@ roslaunch spark_slam spark_slam.launch
      - spark_move_base ( Navigation entity )
      - spark_navigation ( To start map server, amcl and move_base )
   - Node
-    - **Dynamic prohibition layer** 
+    - **Dynamic prohibition layer:** prohibitor.py ( Adds removes sectors within map as prohibited layer after reading from yaml )
