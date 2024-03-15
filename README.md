@@ -98,21 +98,21 @@ roslaunch spark_navigation prohibitor.launch
     - map_saver ( save map in the navigation package )
     - gmapping ( map generation using gmapping package )
   
-<div align="center">
+<p align="center">
 	<img src="images/gmapping.png" width="700"/>
-</div>
+</p>
 
-    - cartographer ( map generation using cartographer package )
+    - cartographer ( map generation using cartographer )
 
-<div align="center">
+<p align="center">
 	<img src="images/cartographer.png" width="700"/>
-</div>
+</p>
 
-    - slamtoolbox_mapping ( map generation using slamtoolbox package )
+    - slamtoolbox_mapping ( map generation using slamtoolbox )
 
-<div align="center">
+<p align="center">
 	<img src="images/slam_toolbox.png" width="700"/>
-</div>
+</p>
 
     - spark_slam ( slam using any of the above mapping agent )
 
@@ -128,6 +128,15 @@ roslaunch spark_navigation prohibitor.launch
     <td><img src="images/nav2.png" width="1000"/></td>
   </tr>
 </table>
+
+│   │   ├── gmapping.launch
+│   │   ├── karto.launch
+│   │   ├── map_saver.launch
+│   │   ├── slamtoolbox_mapping.launch
+│   │   ├── spark_slam.launch
+│   │   ├── turtlebot3_frontier_exploration.launch
+│   │   └── turtlebot3_hector.launch
+
 
   - Node
     - **Dynamic prohibition layer:** prohibitor.py ( Adds removes sectors within map as prohibited layer after reading from yaml )
