@@ -3,7 +3,7 @@
     <arg name="map_name" default="house" />
     <arg name="polygon_name" default="polygon.yaml" />
     <node pkg="spark_navigation" type="prohibitor.py" name="prohibitor"
-        args="$(find spark_navigation)/maps/$(arg map_name) $(find spark_navigation)/param/$(arg polygon_name)"
+        args="$(find spark_navigation)/maps/$(arg map_name) $(find spark_navigation)/config/$(arg polygon_name)"
         output="screen" />
     <!-- /home/aditya/spark_ws/src/spark_navigation/maps/house_filter -->
 </launch>

@@ -10,9 +10,6 @@
 
 Check performance in move_forward and in case of stuck and back off recover mode
 
-**DESIGN**
-- [x] Base for simulation
-- [ ] Arm for simulation
 
 **SOFTWARE STACK**
 
@@ -27,19 +24,26 @@ Check performance in move_forward and in case of stuck and back off recover mode
   - [x] Add the polygon to the map file 
   - [x] call the service
   - [x] Roslog not working in launch file
+- [ ] Milestones
+  - [ ] Ros param to set time and traveled distance
+  - [ ] marker
 - [ ] Behavior tree
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent
 - [ ] Camera Plugin
 - [ ] Fused Odometry
 
+**DESIGN**
+- [x] Base for simulation
+- [ ] Arm for simulation
+
 **DOCUMENTATION**
 
 - [ ] GIFs
-  - [ ] Gmapping
-  - [ ] Slamtoolbox
-  - [ ] Cartographer
-  - [ ] Navigation in the map
-  - [ ] Prohibition Layer
-  - [ ] Dynamic prohibition
+  - [x] Gmapping
+  - [x] Slamtoolbox
+  - [x] Cartographer
+  - [x] Navigation in the map
+  - [x] Prohibition Layer
+  - [x] Dynamic prohibition
   - [ ] Navigation with PoseArray

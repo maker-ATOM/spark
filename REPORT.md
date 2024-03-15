@@ -42,3 +42,11 @@ Map server has service which allows to change the map on the go, so we can simpl
 Do we really need to give the path of package as a param? No we can use the find method within launch file to give the full path of map file
 
 Could not get the yaml-cpp link to source code so shifting to python
+
+## Milestones
+
+A script when launched along with gazebo/bringup stores the robot pose in a yaml file and then this pose will be utilized by spawn entity / amcl.
+
+- Publish markers as well for visualization in rviz.
+
+## Waypoints

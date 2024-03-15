@@ -97,8 +97,23 @@ roslaunch spark_navigation prohibitor.launch
   - Launch
     - map_saver ( save map in the navigation package )
     - gmapping ( map generation using gmapping package )
+  
+<p align="center">
+	<img src="images/gmapping.png" width="700"/>
+</p>
+
     - cartographer ( map generation using cartographer )
+
+<p align="center">
+	<img src="images/cartographer.png" width="700"/>
+</p>
+
     - slamtoolbox_mapping ( map generation using slamtoolbox )
+
+<p align="center">
+	<img src="images/slam_toolbox.png" width="700"/>
+</p>
+
     - spark_slam ( slam using any of the above mapping agent )
 
 - Navigation
@@ -106,5 +121,25 @@ roslaunch spark_navigation prohibitor.launch
      - spark_amcl ( Localization of the robot in the env )
      - spark_move_base ( Navigation entity )
      - spark_navigation ( To start map server, amcl and move_base )
+
+<table>
+  <tr>
+    <td><img src="images/nav1.png" width="1000"/></td>
+    <td><img src="images/nav2.png" width="1000"/></td>
+  </tr>
+</table>
+
   - Node
     - **Dynamic prohibition layer:** prohibitor.py ( Adds removes sectors within map as prohibited layer after reading from yaml )
+
+<table>
+  <tr>
+    <td><img src="images/prohibit.png" width="1000"/></td>
+    <td><img src="images/gz.png" width="1000"/></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="images/prohibit.gif" width="1000"/></td>
+  </tr>
+</table>
+
+    - **Milestones:** milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose )

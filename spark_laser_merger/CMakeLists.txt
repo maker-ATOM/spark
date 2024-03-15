@@ -89,12 +89,12 @@ include_directories(include
 #add_executable(laser_merger_node src/laser_merger_node.cpp)
 #target_link_libraries(laser_merger_node ${catkin_LIBRARIES})
 
-add_executable(laserscan_multi_merger src/laserscan_multi_merger.cpp)
-target_link_libraries(laserscan_multi_merger ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+add_executable(ira_laser_merger src/laserscan_multi_merger.cpp)
+target_link_libraries(ira_laser_merger ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-add_dependencies(laserscan_multi_merger ${PROJECT_NAME}_gencfg)
+add_dependencies(ira_laser_merger ${PROJECT_NAME}_gencfg)
 
 
 ## Specify libraries to link a library or executable target against
@@ -115,7 +115,7 @@ add_dependencies(laserscan_multi_merger ${PROJECT_NAME}_gencfg)
 # )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS laserscan_multi_merger
+install(TARGETS ira_laser_merger
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
