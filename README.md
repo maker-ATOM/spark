@@ -98,21 +98,21 @@ roslaunch spark_navigation prohibitor.launch
     - map_saver ( save map in the navigation package )
     - gmapping ( map generation using gmapping package )
   
-<p align="center">
+<div align="center">
 	<img src="images/gmapping.png" width="700"/>
-</p>
+</div>
 
-    - cartographer ( map generation using cartographer )
+    - cartographer ( map generation using cartographer package )
 
-<p align="center">
+<div align="center">
 	<img src="images/cartographer.png" width="700"/>
-</p>
+</div>
 
-    - slamtoolbox_mapping ( map generation using slamtoolbox )
+    - slamtoolbox_mapping ( map generation using slamtoolbox package )
 
-<p align="center">
+<div align="center">
 	<img src="images/slam_toolbox.png" width="700"/>
-</p>
+</div>
 
     - spark_slam ( slam using any of the above mapping agent )
 
