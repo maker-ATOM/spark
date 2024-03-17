@@ -73,9 +73,9 @@ roslaunch spark_navigation prohibitor.launch
 
 ## Packages
 
-Description
-└── Launch
-    └── description ( Visualize tf and robot model )
+<br>Description
+<br>└── Launch
+<br>&emsp;    └── description ( Visualize tf and robot model )
 
 - Laser Merger
   - Launch
