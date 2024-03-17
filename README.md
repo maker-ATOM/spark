@@ -75,52 +75,55 @@ roslaunch spark_navigation prohibitor.launch
 
 <br>Description
 <br>└── Launch
-<br>&emsp;&emsp;    └── description ( Visualize tf and robot model )
+<br>&emsp;&emsp;    └── description (Visualize tf and robot model)
 
-- Laser Merger
-  - Launch
-    - laser_merger ( Merge LaserScan of both front and rear and produce a single LaserScan )
-  - Node
-    - ira_laser_merger
+<br>Laser Merger
+<br>├── Launch
+<br>│   └── laser_merger (Merge LaserScan of both front and rear and produce a single LaserScan)
+<br>└── Node
+<br>&emsp;&emsp;    └── ira_laser_merger
 
-- Gazebo
-  - Launch
-    - empty_world ( Empty simulation env with robot )
-    - turtlebot3_house ( Indoor simulation env with robot )
-    - arena ( Arena for Robocon 24 )
+<br>Gazebo
+<br>└── Launch
+<br>&emsp;&emsp;    ├── empty_world (Empty simulation env with robot)
+<br>&emsp;&emsp;    ├── turtlebot3_house (Indoor simulation env with robot)
+<br>&emsp;&emsp;    └── arena (Arena for Robocon 24)
 
-- Control
-  - Node
-    - spark_teleop.py ( Teleop )
 
-- Slam
-  - Launch
-    - map_saver ( save map in the navigation package )
-    - gmapping ( map generation using gmapping package )
+Control
+<br>└── Node
+<br>&emsp;&emsp;     └── spark_teleop.py (Teleop)
+
+Slam
+<br>└── Launch
+<br>&emsp;&emsp;     ├── map_saver (save map in the navigation package)
+<br>&emsp;&emsp;     ├── gmapping (map generation using gmapping package)
+
   
 <p align="center">
 	<img src="images/gmapping.png" width="700"/>
 </p>
 
-    - cartographer ( map generation using cartographer )
+<br>&emsp;&emsp;     ├── cartographer (map generation using cartographer)
 
 <p align="center">
 	<img src="images/cartographer.png" width="700"/>
 </p>
 
-    - slamtoolbox_mapping ( map generation using slamtoolbox )
+<br>&emsp;&emsp;     ├── slamtoolbox_mapping (map generation using slamtoolbox)
 
 <p align="center">
 	<img src="images/slam_toolbox.png" width="700"/>
 </p>
 
-    - spark_slam ( slam using any of the above mapping agent )
+<br>&emsp;&emsp;     └── spark_slam (slam using any of the above mapping agent)
 
-- Navigation
-  - Launch
-     - spark_amcl ( Localization of the robot in the env )
-     - spark_move_base ( Navigation entity )
-     - spark_navigation ( To start map server, amcl and move_base )
+Navigation
+<br>├── Launch
+<br>│   ├── spark_amcl (Localization of the robot in the environment)
+<br>│   ├── spark_move_base (Navigation entity)
+<br>│   └── spark_navigation (To start map server, amcl, and move_base)
+
 
 <table>
   <tr>
@@ -129,17 +132,9 @@ roslaunch spark_navigation prohibitor.launch
   </tr>
 </table>
 
-│   │   ├── gmapping.launch
-│   │   ├── karto.launch
-│   │   ├── map_saver.launch
-│   │   ├── slamtoolbox_mapping.launch
-│   │   ├── spark_slam.launch
-│   │   ├── turtlebot3_frontier_exploration.launch
-│   │   └── turtlebot3_hector.launch
+<br>└──Node
+<br>   ├── Dynamic prohibition layer: prohibitor.py (Adds removes sectors within map as prohibited layer after reading from YAML)
 
-
-  - Node
-    - **Dynamic prohibition layer:** prohibitor.py ( Adds removes sectors within map as prohibited layer after reading from yaml )
 
 <table>
   <tr>
@@ -151,4 +146,6 @@ roslaunch spark_navigation prohibitor.launch
   </tr>
 </table>
 
-    - **Milestones:** milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose )
+
+<br>   └── Milestones: milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose)
+
