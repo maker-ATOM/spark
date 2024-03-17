@@ -49,4 +49,131 @@ A script when launched along with gazebo/bringup stores the robot pose in a yaml
 
 - Publish markers as well for visualization in rviz.
 
-## Waypoints
+## Navigation Goals
+
+**A little preface**
+
+<p align="center">
+	<img src="images/movebase.png" width="700"/>
+</p>
+
+
+**Global costmap:** Produces cost map using static map given by the map server and laser scans by the robot.
+
+**Global planner:** Produces a complete start to goal path using dijkstra's algorithm.
+
+**Local Costmap:** Local cost map generated for the local planner using only sensor data.
+
+**Local Planner:** produces cmd_vel given the global path and the local cost map
+
+```py
+        -->   /goal   -->
+        -->  /cancel  -->
+command <-- /feedback <-- move_base
+        <--  /status  <-- (current status of the goal)
+        <--  /results <-- (result of the goal after execution)
+```
+
+```py
+rosmsg show move_base_msgs/MoveBaseAction
+
+move_base_msgs/MoveBaseActionGoal action_goal
+  std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+  actionlib_msgs/GoalID goal_id
+    time stamp
+    string id
+  move_base_msgs/MoveBaseGoal goal
+    geometry_msgs/PoseStamped target_pose
+      std_msgs/Header header
+        uint32 seq
+        time stamp
+        string frame_id
+      geometry_msgs/Pose pose
+        geometry_msgs/Point position
+          float64 x
+          float64 y
+          float64 z
+        geometry_msgs/Quaternion orientation
+          float64 x
+          float64 y
+          float64 z
+          float64 w
+move_base_msgs/MoveBaseActionResult action_result
+  std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+  actionlib_msgs/GoalStatus status
+    uint8 PENDING=0
+    uint8 ACTIVE=1
+    uint8 PREEMPTED=2
+    uint8 SUCCEEDED=3
+    uint8 ABORTED=4
+    uint8 REJECTED=5
+    uint8 PREEMPTING=6
+    uint8 RECALLING=7
+    uint8 RECALLED=8
+    uint8 LOST=9
+    actionlib_msgs/GoalID goal_id
+      time stamp
+      string id
+    uint8 status
+    string text
+  move_base_msgs/MoveBaseResult result
+move_base_msgs/MoveBaseActionFeedback action_feedback
+  std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+  actionlib_msgs/GoalStatus status
+    uint8 PENDING=0
+    uint8 ACTIVE=1
+    uint8 PREEMPTED=2
+    uint8 SUCCEEDED=3
+    uint8 ABORTED=4
+    uint8 REJECTED=5
+    uint8 PREEMPTING=6
+    uint8 RECALLING=7
+    uint8 RECALLED=8
+    uint8 LOST=9
+    actionlib_msgs/GoalID goal_id
+      time stamp
+      string id
+    uint8 status
+    string text
+  move_base_msgs/MoveBaseFeedback feedback
+    geometry_msgs/PoseStamped base_position
+      std_msgs/Header header
+        uint32 seq
+        time stamp
+        string frame_id
+      geometry_msgs/Pose pose
+        geometry_msgs/Point position
+          float64 x
+          float64 y
+          float64 z
+        geometry_msgs/Quaternion orientation
+          float64 x
+          float64 y
+          float64 z
+          float64 w
+```
+
+### Sequential script
+
+Three methods:
+
+0. Raw Goal - direct topic pub without using ActionLib
+1. Simple Goal - using actionlib
+2. Threaded Simple Goal - A different thread to spin the node and different thread to wait for task to get complete
+3. Callback Simple Goal - Do not wait for task to finish, creates a callback instead
+
+ActionLib provides information related to health status of server as well like if the server is active or not, raw topic connection does not provide such. Similar to using ros services.
+
+### Continuos
+
+using State Machine
+using Behavior trees

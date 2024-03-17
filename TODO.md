@@ -27,7 +27,14 @@ Check performance in move_forward and in case of stuck and back off recover mode
 - [ ] Milestones
   - [ ] Ros param to set time and traveled distance
   - [ ] marker
-- [ ] Behavior tree
+- [ ] Nav Goal
+  - [x] Sequential goals
+    - [x] raw topic pub 
+    - [x] simple goals
+    - [x] threaded simple
+    - [x] callback simple
+  - [ ] State machine
+  - [ ] Behavior tree
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent
 - [ ] Camera Plugin
