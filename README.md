@@ -79,7 +79,7 @@ roslaunch spark_navigation prohibitor.launch
 
 <br>Laser Merger
 <br>├── Launch
-<br>│   └── laser_merger (Merge LaserScan of both front and rear and produce a single LaserScan)
+<br>│&emsp;&emsp;  └── laser_merger (Merge LaserScan of both front and rear and produce a single LaserScan)
 <br>└── Node
 <br>&emsp;&emsp;    └── ira_laser_merger
 
@@ -120,9 +120,9 @@ Slam
 
 Navigation
 <br>├── Launch
-<br>│   ├── spark_amcl (Localization of the robot in the environment)
-<br>│   ├── spark_move_base (Navigation entity)
-<br>│   └── spark_navigation (To start map server, amcl, and move_base)
+<br>│&emsp;&emsp;  ├── spark_amcl (Localization of the robot in the environment)
+<br>│&emsp;&emsp;  ├── spark_move_base (Navigation entity)
+<br>│&emsp;&emsp;  └── spark_navigation (To start map server, amcl, and move_base)
 
 
 <table>
@@ -133,7 +133,7 @@ Navigation
 </table>
 
 <br>└──Node
-<br>   ├── Dynamic prohibition layer: prohibitor.py (Adds removes sectors within map as prohibited layer after reading from YAML)
+<br>&emsp;&emsp;   ├── Dynamic prohibition layer: prohibitor.py (Adds removes sectors within map as prohibited layer after reading from YAML)
 
 
 <table>
@@ -147,5 +147,5 @@ Navigation
 </table>
 
 
-<br>   └── Milestones: milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose)
+<br>&emsp;&emsp;   └── Milestones: milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose)
 
