@@ -2,6 +2,8 @@
 
 <launch>
 
+    <arg name="checkpoint_saver" default="true" />
+
     <!-- ################### STATE PUBLISHERS ################### -->
 
     <param command="$(find xacro)/xacro $(find spark_description)/urdf/spark_description.xacro"
@@ -31,5 +33,11 @@
     <!-- ################### LASER MERGER ################### -->
 
     <include file="$(find spark_laser_merger)/launch/laser_merger.launch"></include>
+
+    <!-- ################### CHECKPOINT SAVER ################### -->
+
+    <node if="$(arg checkpoint_saver)" pkg="spark_slam" type="checkpoint_saver.py" name="checkpoint_saver"
+        args="$(find spark_navigation)/config/checkpoints.yaml"
+        output="screen" />
 
 </launch>

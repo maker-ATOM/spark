@@ -36,7 +36,7 @@ roslaunch spark_slam map_saver.launch map_name:=my_map
 **NAVIGATION ON SAVED MAP**
 
 ```py
-roslaunch spark_gazebo spark_playground.launch
+roslaunch spark_gazebo spark_house.launch
 # Robot State Publishers for the robot
 # Spawns robot in gazebo
 # LaserScan Merger
@@ -52,7 +52,7 @@ roslaunch spark_navigation spark_navigation.launch
 **SLAM**
 
 ```py
-roslaunch spark_gazebo spark_playground.launch
+roslaunch spark_gazebo spark_house.launch
 # Robot State Publishers for the robot
 # Spawns robot in gazebo
 # LaserScan Merger
@@ -69,8 +69,15 @@ roslaunch spark_slam spark_slam.launch
 **DYNAMIC PROHIBITED SECTOR**
 
 ```py
+# Launch Gazebo and Navigation
+
 roslaunch spark_navigation prohibitor.launch
 # Verify path to map and .yaml file
+```
+
+**CHECKPOINT**
+
+```py
 ```
 
 ## Packages
@@ -81,7 +88,7 @@ roslaunch spark_navigation prohibitor.launch
 
 <br>Laser Merger
 <br>├── Launch
-<br>│&emsp;&emsp; └── laser_merger (Merge LaserScan of both front and rear and produce a single LaserScan)
+<br>│&emsp;&emsp;└── laser_merger (Merge LaserScan of both front and rear and produce a single LaserScan)
 <br>└── Node
 <br>&emsp;&emsp;    └── ira_laser_merger
 
@@ -118,7 +125,8 @@ Slam
 	<img src="images/slam_toolbox.png" width="700"/>
 </p>
 
-<br>&emsp;&emsp;     └── spark_slam (slam using any of the above mapping agent)
+<br>&emsp;&emsp;     ├── spark_slam (slam using any of the above mapping agent)
+<br>&emsp;&emsp;     └── checkpoint_saver.py (stores the current robot pose as checkpoint after calling the service) [Usage](REPORT.md#checkpoint_saver)
 
 Navigation
 <br>├── Launch
@@ -135,7 +143,7 @@ Navigation
 </table>
 
 <br>└──Node
-<br>&emsp;&emsp;  ├── Dynamic prohibition layer: prohibitor.py (Adds removes sectors within map as prohibited layer after reading from YAML)
+<br>&emsp;&emsp;  ├── Dynamic prohibition layer: prohibitor.py (Adds removes sectors within map as prohibited layer after reading from YAML) [Usage](REPORT.md#dynamic-prohibition-layer)
 
 <table>
   <tr>
@@ -146,9 +154,6 @@ Navigation
     <td colspan="2"><img src="images/prohibit.gif" width="1000"/></td>
   </tr>
 </table>
-
-
-<br>&emsp;&emsp;  └── Milestones: milestones.py (Stores robot after every interval so in case of failure the robot can start from the milestone instead of home pose)
 
 <br>Navigation_goals
 <br>├── Launch

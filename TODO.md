@@ -24,9 +24,14 @@ Check performance in move_forward and in case of stuck and back off recover mode
   - [x] Add the polygon to the map file 
   - [x] call the service
   - [x] Roslog not working in launch file
-- [ ] Milestones
-  - [ ] Ros param to set time and traveled distance
-  - [ ] marker
+- [x] Store Checkpoints
+  - [x] service to clear the yaml file
+  - [x] custom srv msg to get checkpoint name
+  - [x] service to store the pose
+  - [x] sub to odom
+  - [x] marker for visualization
+  - [x] include in bringup(gazebo) launch file
+- [ ] Use Checkpoints
 - [ ] Nav Goal
   - [x] Sequential goals
     - [x] raw topic pub 

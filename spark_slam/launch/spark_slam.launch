@@ -1,22 +1,29 @@
 <launch>
-    <arg name="map_file" default="$(find spark_navigation)/maps/house.yaml"/>
-    <arg name="move_forward_only" default="false"/>
-  
-    <!-- ################### MAPPING ################### -->
+  <arg name="map_file" default="$(find spark_navigation)/maps/house.yaml" />
+  <arg name="move_forward_only" default="false" />
 
-    <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
-        <rosparam command="load" file="$(find spark_slam)/config/mapper_params_online_async.yaml" />
-      </node>
-  
-    <!-- ################### MOVEBASE ################### -->
+  <!-- ################### MAPPING ################### -->
 
-    <include file="$(find spark_navigation)/launch/spark_move_base.launch">
-      <arg name="move_forward_only" value="$(arg move_forward_only)"/>
-    </include>
-  
-    <!-- ################### RVIZ ################### -->
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node"
+    args=" 
+		-configuration_directory $(find spark_slam)/config 
+		-configuration_basename carto.lua"
+    output="screen">
+    <remap from="scan" to="/scan/merge" />
+  </node>
 
-    <arg default="$(find spark_description)/rviz/navigation.rviz" name="rvizconfig" />
-    <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+    type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
 
-  </launch>
+  <!-- ################### MOVEBASE ################### -->
+
+  <include file="$(find spark_navigation)/launch/spark_move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)" />
+  </include>
+
+  <!-- ################### RVIZ ################### -->
+
+  <arg default="$(find spark_description)/rviz/navigation.rviz" name="rvizconfig" />
+  <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz" />
+
+</launch>

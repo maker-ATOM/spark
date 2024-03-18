@@ -8,13 +8,13 @@
 
 ## Mapping 
 
-1. Slam_toolbox
+1. Slam_toolbox:
 Bad performance, continuous origin shifts
 
-2. Gmapping
+2. Gmapping:
 False true values
 
-3. Cartographer
+3. Cartographer:
 Works good
 
 4. Hector
@@ -43,7 +43,31 @@ Do we really need to give the path of package as a param? No we can use the find
 
 Could not get the yaml-cpp link to source code so shifting to python
 
-## Milestones
+### Usage 
+
+provide two arguments to the script first is the path to map file to be used and second is path to polygon.yaml file (refer prohibitor.launch in navigation package)
+
+The node will read the polygon yaml and map.pgm edit the map based on .yaml file and save the map. `change_map` service by `map_server` will be called to update the modified map.
+
+## Checkpoints
+
+Checkpoints to store so that in case of robot power fails for some reason, the robot should not need to brought back to home instead just bring to closest checkpoint.
+
+### Checkpoint_saver
+At first we need to store robot poses as checkpoints and this will happen while mapping,
+ - Service will be made available which when called will clear the yaml file if necessary.
+ - Service to store the current position of the robot as milestone, gets name of the milestone
+ - Topic which publishes marker in the form of poses.
+
+**Usage**
+
+- The Script only requires the path to checkpoint.yaml file through argument. (rosrun spark_slam checkpoint_saver.py /home/aditya/spark_ws/src/spark_navigation/config/checkpoints.yaml
+)
+- `/clear_checkpoint` service to clear the .yaml file (rosservice call /clear_checkpoints "{}")
+- `/store_checkpoint` service to store the current robot pose as checkpoint, provide the name for checkpoint (rosservice call /store_checkpoint "name: 'checkpoint_a'"
+)
+
+### Checkpoint_Updater
 
 A script when launched along with gazebo/bringup stores the robot pose in a yaml file and then this pose will be utilized by spawn entity / amcl.
 
@@ -54,7 +78,7 @@ A script when launched along with gazebo/bringup stores the robot pose in a yaml
 **A little preface**
 
 <p align="center">
-	<img src="images/movebase.png" width="700"/>
+	<img src="images/movebase.png" width="900"/>
 </p>
 
 
