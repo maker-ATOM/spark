@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 78
+    Help Height: 206
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -8,8 +8,9 @@ Panels:
         - /TF1/Tree1
         - /Global Map1/Costmap1
         - /Local Map1/Polygon1
+        - /MarkerArray2/Namespaces1
       Splitter Ratio: 0.5
-    Tree Height: 788
+    Tree Height: 660
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -393,6 +394,22 @@ Visualization Manager:
       Topic: /move_base/NavfnROS/plan
       Unreliable: false
       Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /set_checkpoint_visualizer
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /available_checkpoint_visualizer
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -416,7 +433,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -1.5707963705062866
+      Angle: -1.575796365737915
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -426,10 +443,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 332.6855773925781
+      Scale: 163.7248077392578
       Target Frame: <Fixed Frame>
-      X: 0.8279837369918823
-      Y: 0.6912292242050171
+      X: 1.097487211227417
+      Y: 0.5105584263801575
     Saved: ~
 Window Geometry:
   Displays:

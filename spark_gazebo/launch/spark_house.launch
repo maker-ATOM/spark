@@ -2,7 +2,7 @@
 
 <launch>
 
-    <arg name="checkpoint_saver" default="true" />
+    <arg name="checkpoint" default="true" />
 
     <!-- ################### STATE PUBLISHERS ################### -->
 
@@ -12,8 +12,8 @@
 
     <!-- ################### GAZEBO ################### -->
 
-    <arg name="x_pos" default="-4.0" />
-    <arg name="y_pos" default="-2.0" />
+    <arg name="x_pos" default="-2.0" />
+    <arg name="y_pos" default="0.0" />
     <arg name="z_pos" default="0.2" />
     <arg name="yaw" default="0.0" />
 
@@ -36,7 +36,15 @@
 
     <!-- ################### CHECKPOINT SAVER ################### -->
 
-    <node if="$(arg checkpoint_saver)" pkg="spark_slam" type="checkpoint_saver.py" name="checkpoint_saver"
+    <node if="$(arg checkpoint)" pkg="spark_slam" type="checkpoint_saver.py"
+        name="checkpoint_saver"
+        args="$(find spark_navigation)/config/checkpoints.yaml"
+        output="screen" />
+
+    <!-- ################### CHECKPOINT SAVER ################### -->
+
+    <node if="$(arg checkpoint)" pkg="spark_navigation" type="update_initpose.py"
+        name="update_initpose"
         args="$(find spark_navigation)/config/checkpoints.yaml"
         output="screen" />
 

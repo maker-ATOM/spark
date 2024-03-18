@@ -26,7 +26,7 @@ class CheckpointSaver:
         rospy.loginfo("Store checkpoint service available...")
         
         # Initialize a ROS publisher for visualization markers
-        self.marker_pub = rospy.Publisher("/checkpoint_visualizer", MarkerArray, queue_size=10)
+        self.marker_pub = rospy.Publisher("/set_checkpoint_visualizer", MarkerArray, queue_size=10)
         self.MarkerArray = MarkerArray()
         
         # Initialize a TF listener

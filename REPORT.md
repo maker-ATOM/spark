@@ -67,9 +67,9 @@ At first we need to store robot poses as checkpoints and this will happen while 
 - `/store_checkpoint` service to store the current robot pose as checkpoint, provide the name for checkpoint (rosservice call /store_checkpoint "name: 'checkpoint_a'"
 )
 
-### Checkpoint_Updater
+### update_initpose
 
-A script when launched along with gazebo/bringup stores the robot pose in a yaml file and then this pose will be utilized by spawn entity / amcl.
+A script when launched along with gazebo/bringup takes the milestone from user in the form of service and pub the position on `initialpose` topic
 
 - Publish markers as well for visualization in rviz.
 
@@ -197,7 +197,7 @@ Three methods:
 
 ActionLib provides information related to health status of server as well like if the server is active or not, raw topic connection does not provide such. Similar to using ros services.
 
-### Continuos
+### Continuous
 
 using State Machine
 using Behavior trees

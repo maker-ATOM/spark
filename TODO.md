@@ -31,7 +31,9 @@ Check performance in move_forward and in case of stuck and back off recover mode
   - [x] sub to odom
   - [x] marker for visualization
   - [x] include in bringup(gazebo) launch file
-- [ ] Use Checkpoints
+- [x] Use Checkpoints
+  - [x] Pub all checkpoints in the .yaml file
+  - [x] pub to initialpose based to service call by user
 - [ ] Nav Goal
   - [x] Sequential goals
     - [x] raw topic pub 
@@ -58,4 +60,6 @@ Check performance in move_forward and in case of stuck and back off recover mode
   - [x] Navigation in the map
   - [x] Prohibition Layer
   - [x] Dynamic prohibition
+  - [ ] Store checkpoints
+  - [ ] Load checkpoint
   - [ ] Navigation with PoseArray

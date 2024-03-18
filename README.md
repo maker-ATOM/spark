@@ -77,7 +77,11 @@ roslaunch spark_navigation prohibitor.launch
 
 **CHECKPOINT**
 
+Save checkpoints.
+
 ```py
+# Added in gazebo.launch (Bringup in real robot)
+rosrun spark_slam checkpoint_saver.py /path_to/checkpoints.yaml
 ```
 
 ## Packages
@@ -126,7 +130,8 @@ Slam
 </p>
 
 <br>&emsp;&emsp;     ├── spark_slam (slam using any of the above mapping agent)
-<br>&emsp;&emsp;     └── checkpoint_saver.py (stores the current robot pose as checkpoint after calling the service) [Usage](REPORT.md#checkpoint_saver)
+<br>&emsp;&emsp;     ├── checkpoint_saver.py (stores the current robot pose as checkpoint after calling the service) [Usage](REPORT.md#checkpoint_saver)
+<br>&emsp;&emsp;     └── update_initpose.py (Gets milestone from user in form of service and pubs topic to /amcl/initialpose) [Usage](REPORT.md#update_init)
 
 Navigation
 <br>├── Launch
