@@ -2,7 +2,7 @@
 
 <launch>
 
-    <arg name="checkpoint" default="true" />
+    <arg name="checkpoint" default="false" />
 
     <!-- ################### STATE PUBLISHERS ################### -->
 
@@ -12,8 +12,8 @@
 
     <!-- ################### GAZEBO ################### -->
 
-    <arg name="x_pos" default="-2.0" />
-    <arg name="y_pos" default="0.0" />
+    <arg name="x_pos" default="-4.0" />
+    <arg name="y_pos" default="-2.0" />
     <arg name="z_pos" default="0.2" />
     <arg name="yaw" default="0.0" />
 
@@ -47,5 +47,11 @@
         name="update_initpose"
         args="$(find spark_navigation)/config/checkpoints.yaml"
         output="screen" />
+
+    <!-- ################### BATTERY ################### -->
+
+    <node pkg="spark_gazebo" type="battery" name="battery"
+        args="-4.0 -0.5" output="screen" />
+
 
 </launch>

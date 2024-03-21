@@ -97,11 +97,12 @@ rosrun spark_slam checkpoint_saver.py /path_to/checkpoints.yaml
 <br>&emsp;&emsp;    └── ira_laser_merger
 
 <br>Gazebo
-<br>└── Launch
-<br>&emsp;&emsp;    ├── empty_world (Empty simulation env with robot)
-<br>&emsp;&emsp;    ├── turtlebot3_house (Indoor simulation env with robot)
-<br>&emsp;&emsp;    └── arena (Arena for Robocon 24)
-
+<br>├── Launch
+<br>│&emsp;&emsp; ├── empty_world (Empty simulation env with robot)
+<br>│&emsp;&emsp; ├── turtlebot3_house (Indoor simulation env with robot)
+<br>│&emsp;&emsp; └── arena (Arena for Robocon 24)
+<br>└── Node
+<br>&emsp;&emsp;    └── battery (Simulation of linear battery discharge)
 
 Control
 <br>└── Node
@@ -131,7 +132,7 @@ Slam
 
 <br>&emsp;&emsp;     ├── spark_slam (slam using any of the above mapping agent)
 <br>&emsp;&emsp;     ├── checkpoint_saver.py (stores the current robot pose as checkpoint after calling the service) [Usage](REPORT.md#checkpoint_saver)
-<br>&emsp;&emsp;     └── update_initpose.py (Gets milestone from user in form of service and pubs topic to /amcl/initialpose) [Usage](REPORT.md#update_init)
+<br>&emsp;&emsp;     └── update_initpose.py (Gets milestone from user in form of service and pubs topic to /amcl/initialpose) [Usage](REPORT.md#update_initpose)
 
 Navigation
 <br>├── Launch

@@ -73,6 +73,11 @@ A script when launched along with gazebo/bringup takes the milestone from user i
 
 - Publish markers as well for visualization in rviz.
 
+## Battery
+
+To simulate battery charge and discharge. A simple script which decrease voltage linearly and if the robot is in the vicinity of specified area increase the voltage linearly
+Argument to provide the docking location.
+
 ## Navigation Goals
 
 **A little preface**

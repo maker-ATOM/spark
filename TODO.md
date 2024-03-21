@@ -34,6 +34,10 @@ Check performance in move_forward and in case of stuck and back off recover mode
 - [x] Use Checkpoints
   - [x] Pub all checkpoints in the .yaml file
   - [x] pub to initialpose based to service call by user
+- [x] Battery Plugin
+  - [x] Linear model
+  - [x] charging dock (if robot at doc increase the voltage)
+  - [x] Argument for docking location.
 - [ ] Nav Goal
   - [x] Sequential goals
     - [x] raw topic pub 
