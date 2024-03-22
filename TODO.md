@@ -45,6 +45,9 @@ Check performance in move_forward and in case of stuck and back off recover mode
     - [x] threaded simple
     - [x] callback simple
   - [ ] State machine
+    - [x] switch fsm
+      - [x] Get feedback of status from topic
+      - [x] while loop inside class?
   - [ ] Behavior tree
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent

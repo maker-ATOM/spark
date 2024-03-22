@@ -8,6 +8,7 @@ project(spark_nav_goals)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  std_msgs
   actionlib
   move_base_msgs
   roscpp
@@ -137,6 +138,8 @@ add_executable(simple_goal src/simple_goal.cpp)
 add_executable(raw_goal src/raw_goal.cpp)
 add_executable(callback_goal src/callback_goal.cpp)
 
+add_executable(switch_fsm src/switch_fsm.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -151,15 +154,16 @@ add_executable(callback_goal src/callback_goal.cpp)
 target_link_libraries(simple_goal
   ${catkin_LIBRARIES}
 )
-
 target_link_libraries(raw_goal
   ${catkin_LIBRARIES}
 )
-
 target_link_libraries(callback_goal
   ${catkin_LIBRARIES}
 )
 
+target_link_libraries(switch_fsm
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

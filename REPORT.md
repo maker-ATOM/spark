@@ -204,5 +204,14 @@ ActionLib provides information related to health status of server as well like i
 
 ### Continuous
 
-using State Machine
+#### State Machines
+
+- Switch case
+
+incase of callback to check the status of the goal we should subscribe to `move_base/status` topic because feedback callback contains only position of the robot and done feedback is called when robot reaches the goal and after reaching one resets the status.
+
+More over we need to add the while loop inside the class cause accessing private member using functions get cumbersome.
+
+**Move base does not provide any feedback when robot has failed to produce a path and requires help :/**
+
 using Behavior trees

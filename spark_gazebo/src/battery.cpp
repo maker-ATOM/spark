@@ -19,8 +19,8 @@ int main(int argc, char **argv)
 
     ROS_INFO("x: %f, y%f", dock_x, dock_y);
 
-    float battery_per = 99.9;
-    float battery_consumption = 0.01;
+    float battery_per = 40.0;
+    float battery_consumption = 0.02;
     float tolerance = 0.1;
 
     std_msgs::Float32 battery;
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     {
         try
         {
-            listener.lookupTransform("/odom", "/base_link",
+            listener.lookupTransform("/map", "/base_link",
                                      ros::Time(0), transform);
 
             ROS_DEBUG("Translation: x=%f, y=%f", transform.getOrigin().x(), transform.getOrigin().y());
@@ -53,10 +53,6 @@ int main(int argc, char **argv)
         {
             ROS_ERROR("%s", ex.what());
             ros::Duration(1.0).sleep();
-        }
-
-        if (battery_per > 0 && battery_per < 100)
-        {
         }
 
         battery.data = battery_per;

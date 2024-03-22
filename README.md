@@ -84,6 +84,14 @@ Save checkpoints.
 rosrun spark_slam checkpoint_saver.py /path_to/checkpoints.yaml
 ```
 
+**SINGLE GOAL**
+
+```py
+# Launch Gazebo and Navigation
+
+roslaunch spark_navigation callback_goal
+```
+
 ## Packages
 
 <br>Description
@@ -167,4 +175,9 @@ Navigation
 <br>└── Node
 <br>&emsp;&emsp;    ├── raw_goal (Send Single Goal using direct topic publishment and not via Actionlib)
 <br>&emsp;&emsp;    ├── simple_goal (Send Single Goal using Actionlib)
-<br>&emsp;&emsp;    └── callback_goal (Create callback and do not wait for result)
+<br>&emsp;&emsp;    ├── callback_goal (Create callback and do not wait for result)
+<br>&emsp;&emsp;    └── switch_fsm (fsm implementation independent of ros)
+
+<p align="center">
+	<img src="images/switch_fsm.png" width="700"/>
+</p>
