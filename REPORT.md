@@ -214,4 +214,12 @@ More over we need to add the while loop inside the class cause accessing private
 
 **Move base does not provide any feedback when robot has failed to produce a path and requires help :/**
 
-using Behavior trees
+- Function Pointer
+- Struct Table
+
+#### Behavior Trees
+
+Ways to define leaf nodes:<br>
+- Node Class which represents the node itself and inherits from ActionNode Class
+- Function, register this function as a leaf node
+- Custom Class Method, register methods within this node as leaf nodes

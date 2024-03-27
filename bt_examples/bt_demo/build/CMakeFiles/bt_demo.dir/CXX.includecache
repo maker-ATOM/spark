@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aditya/spark_ws/src/bt_examples/bt_demo/bt_demo.cpp
+iostream
+-
+chrono
+-
+behaviortree_cpp/action_node.h
+/home/aditya/spark_ws/src/bt_examples/bt_demo/behaviortree_cpp/action_node.h
+behaviortree_cpp/bt_factory.h
+/home/aditya/spark_ws/src/bt_examples/bt_demo/behaviortree_cpp/bt_factory.h
+behaviortree_cpp/loggers/groot2_publisher.h
+/home/aditya/spark_ws/src/bt_examples/bt_demo/behaviortree_cpp/loggers/groot2_publisher.h
+

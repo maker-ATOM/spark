@@ -1,0 +1,3 @@
+/home/aditya/spark_ws/src/bt_examples/sync_no_loop/build/CMakeFiles/rebuild_cache.dir
+/home/aditya/spark_ws/src/bt_examples/sync_no_loop/build/CMakeFiles/edit_cache.dir
+/home/aditya/spark_ws/src/bt_examples/sync_no_loop/build/CMakeFiles/sync_no_loop.dir

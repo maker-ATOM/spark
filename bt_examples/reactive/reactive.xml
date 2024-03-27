@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="reactive">
+    <Fallback>
+      <SequenceWithMemory>
+        <ReactiveSequence>
+          <Fallback>
+            <Battery/>
+            <Sequence>
+              <MoveToDock/>
+              <Charging/>
+            </Sequence>
+          </Fallback>
+          <MoveToA/>
+        </ReactiveSequence>
+        <ReactiveSequence>
+          <Fallback>
+            <Battery/>
+            <Sequence>
+              <MoveToDock/>
+              <Charging/>
+            </Sequence>
+          </Fallback>
+          <MoveToB/>
+        </ReactiveSequence>
+        <ReactiveSequence>
+          <Fallback>
+            <Battery/>
+            <Sequence>
+              <MoveToDock/>
+              <Charging/>
+            </Sequence>
+          </Fallback>
+          <MoveToC/>
+        </ReactiveSequence>
+      </SequenceWithMemory>
+      <Help/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Condition ID="Battery"
+               editable="true"/>
+    <Action ID="Charging"
+            editable="true"/>
+    <Action ID="Help"
+            editable="true"/>
+    <Action ID="MoveToA"
+            editable="true"/>
+    <Action ID="MoveToB"
+            editable="true"/>
+    <Action ID="MoveToC"
+            editable="true"/>
+    <Action ID="MoveToDock"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

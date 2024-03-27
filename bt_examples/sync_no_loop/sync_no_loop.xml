@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="sync_no_loop">
+    <Fallback>
+      <Sequence>
+        <MoveToA/>
+        <MoveToB/>
+        <MoveToC/>
+      </Sequence>
+      <Help/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Help"
+            editable="true"/>
+    <Action ID="MoveToA"
+            editable="true"/>
+    <Action ID="MoveToB"
+            editable="true"/>
+    <Action ID="MoveToC"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

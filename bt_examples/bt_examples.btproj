@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="bt_examples">
+    <include path="async_no_loop/async_no_loop.xml"/>
+    <include path="reactive/reactive.xml"/>
+    <include path="sync_no_loop/sync_no_loop.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="Help" editable="true"/>
+        <Action ID="MoveToA" editable="true"/>
+        <Action ID="MoveToB" editable="true"/>
+        <Action ID="MoveToC" editable="true"/>
+    </TreeNodesModel>
+</root>

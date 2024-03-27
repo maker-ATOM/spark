@@ -1,0 +1,16 @@
+<root BTCPP_format="4" >
+    <BehaviorTree ID="MainTree">
+      <Sequence name="root_sequence">
+        <CheckBattery   name="check_battery"/>
+        <ApproachObject name="approach_object"/>
+        <OpenGripper    name="open_gripper"/>
+        <CloseGripper   name="close_gripper"/>
+      </Sequence>
+    </BehaviorTree>
+    <!-- <TreeNodesModel>
+        <Action ID="ApproachObject" editable="true"/>
+        <Condition ID="CheckBattery" editable="true"/>
+        <Action ID="CloseGripper" editable="true"/>
+        <Action ID="OpenGripper" editable="true"/>
+    </TreeNodesModel> -->
+  </root>

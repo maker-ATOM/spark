@@ -44,11 +44,17 @@ Check performance in move_forward and in case of stuck and back off recover mode
     - [x] simple goals
     - [x] threaded simple
     - [x] callback simple
-  - [ ] State machine
+  - [x] State machine
     - [x] switch fsm
       - [x] Get feedback of status from topic
       - [x] while loop inside class?
   - [ ] Behavior tree
+    - [ ] Example
+      - [x] sync no Loop
+      - [x] Sync loop
+      - [ ] Reactive
+        - [ ] Base Class definition for send move to goal, this class will inherit from StatefulActionNode
+        - [ ] Sub tree for battery
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent
 - [ ] Camera Plugin
