@@ -222,4 +222,10 @@ More over we need to add the while loop inside the class cause accessing private
 Ways to define leaf nodes:<br>
 - Node Class which represents the node itself and inherits from ActionNode Class
 - Function, register this function as a leaf node
-- Custom Class Method, register methods within this node as leaf nodes
+- Custom Class Method, register methods within this node as leaf nodes.
+
+To combine with move_base we define all the functionality of the node including actionlib client and other pub subs we use custom class so that data transfer between callback methods gets easier.
+
+Moreover we also define action node for behavior tree in a class.
+
+It is necessary for action node to inherit from SyncActionNode but that is node the case with move_base actionlib, so we can define move_base and other sub callbacks in the action node which inherits from SyncActionNode

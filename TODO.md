@@ -49,12 +49,14 @@ Check performance in move_forward and in case of stuck and back off recover mode
       - [x] Get feedback of status from topic
       - [x] while loop inside class?
   - [ ] Behavior tree
-    - [ ] Example
+    - [x] Example
       - [x] sync no Loop
       - [x] Sync loop
-      - [ ] Reactive
-        - [ ] Base Class definition for send move to goal, this class will inherit from StatefulActionNode
-        - [ ] Sub tree for battery
+      - [x] Reactive
+        - [ ] ~~Base Class definition for send move to goal, this class will inherit from StatefulActionNode~~
+        - [ ] ~~Sub tree for battery~~
+      - [x] Port and blackboard with same action node.
+    - [ ] Only go to goal (inherit from ports and blackboard)
 - [ ] try other mapping agents
 - [ ] Add param with in slam to choose mapping agent
 - [ ] Camera Plugin

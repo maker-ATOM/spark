@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="port_blackboard">
+    <Sequence>
+      <Set_Location pose="{location_poses}"/>
+      <Fallback>
+        <SequenceWithMemory>
+          <MoveToGoal location="location_a" pose="{location_poses}"/>
+          <MoveToGoal location="location_b" pose="{location_poses}"/>
+          <MoveToGoal location="location_c" pose="{location_poses}"/>
+        </SequenceWithMemory>
+        <Help/>
+      </Fallback>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Help"
+            editable="true"/>
+    <Action ID="MoveToGoal" editable="true">
+      <input_port name="location" default="location_a">To what location should robot move</input_port>
+      <input_port name="pose">Map between all locations and poses</input_port>
+    </Action>
+    <Action ID="Set_Location" editable="true">
+      <output_port name="pose">A map of &lt;location, pose&gt;</output_port>
+    </Action>
+  </TreeNodesModel>
+
+</root>

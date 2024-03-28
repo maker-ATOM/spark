@@ -186,9 +186,11 @@ Navigation
 <br>├── Sync_No_Loop
 <br>├── Sync_Loop
 <p align="center">
-	<img src="images/switch_fsm.png" width="700"/>
+	<img src="images/sync.png" width="700"/>
 </p>
-<br>└── Reactive (Async behavior with Reactive sequence and memory)
+<br>├── Reactive (Async behavior with Reactive sequence and memory)
 <p align="center">
 	<img src="images/reactive.png" width="700"/>
 </p>
+
+<br>├── port_blackboard (Same MoveToGoal SyncActionNode but to which goal to reach is defined by port name)
