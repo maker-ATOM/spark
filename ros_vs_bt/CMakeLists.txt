@@ -1,22 +1,24 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(spark_nav_goals)
+project(ros_vs_bt)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
 
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  roscpp
   std_msgs
   actionlib
   move_base_msgs
-  roscpp
 )
+
 
 find_package(behaviortree_cpp)
 
@@ -80,7 +82,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   move_base_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -114,8 +116,8 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES spark_nav_goals
-#  CATKIN_DEPENDS actionlib move_base_msgs roscpp
+#  LIBRARIES ros_vs_bt
+#  CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
 
@@ -132,7 +134,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/spark_nav_goals.cpp
+#   src/${PROJECT_NAME}/ros_vs_bt.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -143,12 +145,14 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(simple_goal src/simple_goal.cpp)
-add_executable(raw_goal src/raw_goal.cpp)
-add_executable(callback_goal src/callback_goal.cpp)
+# add_executable(${PROJECT_NAME}_node src/ros_vs_bt_node.cpp)
 
-add_executable(switch_fsm src/switch_fsm.cpp)
-add_executable(behavior src/behavior.cpp)
+
+add_executable(state src/state.cpp)
+add_executable(ros_vs_bt src/ros_vs_bt.cpp)
+add_executable(ros_and_bt src/ros_and_bt.cpp)
+
+add_executable(thread src/thread.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -161,23 +165,27 @@ add_executable(behavior src/behavior.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(simple_goal
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(raw_goal
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(callback_goal
+# target_link_libraries(${PROJECT_NAME}_node
+#   ${catkin_LIBRARIES}
+# )
+
+target_link_libraries(state
   ${catkin_LIBRARIES}
 )
 
-target_link_libraries(switch_fsm
-  ${catkin_LIBRARIES}
-)
-
-target_link_libraries(behavior
+target_link_libraries(ros_vs_bt
   ${catkin_LIBRARIES}
   BT::behaviortree_cpp
+)
+
+target_link_libraries(ros_and_bt
+  ${catkin_LIBRARIES}
+  BT::behaviortree_cpp
+)
+
+target_link_libraries(thread 
+  # ${catkin_LIBRARIES} 
+  pthread
 )
 
 #############
@@ -227,7 +235,7 @@ target_link_libraries(behavior
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_spark_nav_goals.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_vs_bt.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

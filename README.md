@@ -192,5 +192,10 @@ Navigation
 <p align="center">
 	<img src="images/reactive.png" width="700"/>
 </p>
+<br>└── port_blackboard (Same MoveToGoal SyncActionNode but to which goal to reach is defined by port name)
 
-<br>├── port_blackboard (Same MoveToGoal SyncActionNode but to which goal to reach is defined by port name)
+
+<br>ROS vs BT
+<br>├── ros_vs_bt
+<br>├── ros_and_bt
+<br>└── thread (is multi-threading a problem)

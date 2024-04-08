@@ -229,3 +229,19 @@ To combine with move_base we define all the functionality of the node including 
 Moreover we also define action node for behavior tree in a class.
 
 It is necessary for action node to inherit from SyncActionNode but that is node the case with move_base actionlib, so we can define move_base and other sub callbacks in the action node which inherits from SyncActionNode
+
+
+**Variable update issue:** currently MoveToGoal is define in a class inherted from SyncActionNode ans ros methods are also define in the same class.
+Now the issue is attributes set by ros are not reflected to bt and vice versa, i think they have to something to do with ros running in different thread and bt running another thread
+
+**Can we override the method and pass the values for callback?**
+
+#### Template to test ROS vs BT
+
+ros vs bt: inside work class which is inherited from SyncActionNode ros node in initializes
+
+ros and bt: both ros and bt has their own class and bt gets the state attribute via a method
+
+ros on bt: 
+
+thread: is multi-threading a issue?

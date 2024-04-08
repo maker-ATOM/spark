@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
     ROS_INFO("x: %f, y%f", dock_x, dock_y);
 
-    float battery_per = 40.0;
+    float battery_per = 100.0;
     float battery_consumption = 0.02;
     float tolerance = 0.1;
 

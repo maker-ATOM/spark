@@ -49,6 +49,8 @@ Check performance in move_forward and in case of stuck and back off recover mode
       - [x] Get feedback of status from topic
       - [x] while loop inside class?
   - [ ] Behavior tree
+    - [x] ROS vs BT
+    - [ ] ROS and BT
     - [x] Example
       - [x] sync no Loop
       - [x] Sync loop
