@@ -1,0 +1,7 @@
+<library path="lib/libwait_recovery">
+    <class name="wait_recovery/WaitRecovery" type="wait_recovery::WaitRecovery" base_class_type="nav_core::RecoveryBehavior">
+      <description>
+        Waits for specified amount of time hoping for the obstacle to be removed.
+      </description>
+    </class>
+  </library>

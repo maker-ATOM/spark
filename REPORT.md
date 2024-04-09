@@ -245,3 +245,10 @@ ros and bt: both ros and bt has their own class and bt gets the state attribute 
 ros on bt: 
 
 thread: is multi-threading a issue?
+
+### Recovery Behavior 
+
+Custom recovery behavior for the robot.
+
+- Create a plugin
+- Register the plugin to move base using 

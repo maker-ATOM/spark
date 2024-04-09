@@ -38,6 +38,9 @@ Check performance in move_forward and in case of stuck and back off recover mode
   - [x] Linear model
   - [x] charging dock (if robot at doc increase the voltage)
   - [x] Argument for docking location.
+- [ ] Recovery Behavior
+  - [x] Wait Recovery
+  - [ ] Back recovery
 - [ ] Nav Goal
   - [x] Sequential goals
     - [x] raw topic pub 
