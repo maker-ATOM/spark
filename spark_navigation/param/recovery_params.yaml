@@ -1,6 +1,6 @@
 
 # Wait
-wait_duration: 1.0
+wait_duration: 10.0
 
 # Backoff
 
