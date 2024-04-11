@@ -41,6 +41,8 @@ Check performance in move_forward and in case of stuck and back off recover mode
 - [ ] Recovery Behavior
   - [x] Wait Recovery
   - [ ] Back recovery
+    - [ ] Blind backoff
+- [ ] Why does control loop misses its behavior
 - [ ] Nav Goal
   - [x] Sequential goals
     - [x] raw topic pub 

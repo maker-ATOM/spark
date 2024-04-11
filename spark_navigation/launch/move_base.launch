@@ -15,6 +15,6 @@
       <remap from="odom" to="$(arg odom_topic)"/>
       <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
       <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> 
-      <param name="recovery_behaviors" value="[{name: conservative_reset, type: clear_costmap_recovery/ClearCostmapRecovery}, {name: wait, type: wait_recovery/WaitRecovery}]" type="yaml" />
+      <param name="recovery_behaviors" value="[{name: conservative_reset, type: clear_costmap_recovery/ClearCostmapRecovery}, {name: wait, type: wait_recovery/WaitRecovery},  {name: backoff, type: backoff_recovery/BackoffRecovery}]" type="yaml" />
     </node>
   </launch>

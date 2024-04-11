@@ -251,4 +251,4 @@ thread: is multi-threading a issue?
 Custom recovery behavior for the robot.
 
 - Create a plugin
-- Register the plugin to move base using 
+- Register the plugin to move base using rosparam

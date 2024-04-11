@@ -203,3 +203,8 @@ Navigation
 <p align="center">
 	<img src="images/wait.png" width="700"/>
 </p>
+
+<br>Backoff Recovery
+<p align="center">
+	<img src="images/blind.png" width="700"/>
+</p>

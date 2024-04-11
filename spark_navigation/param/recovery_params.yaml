@@ -1,4 +1,8 @@
 
 # Wait
+wait_duration: 1.0
 
-wait_duration: 10.0
+# Backoff
+
+backoff_distance: 0.5
+vel: 0.2
