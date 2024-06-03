@@ -27,4 +27,19 @@
         args="-param robot_description -urdf -model spark -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) "
         name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" />
 
+    <!-- Controller configuration -->
+    <arg name="controller_config_file" default="$(find spark_gazebo)/config/ur3_controllers.yaml"
+        doc="Config file used for defining the ROS-Control controllers." />
+    <arg name="controllers" default="joint_state_controller eff_joint_traj_controller"
+        doc="Controllers that are activated by default." />
+    <arg name="stopped_controllers" default="joint_group_eff_controller"
+        doc="Controllers that are initally loaded, but not started." />
+
+
+    <include file="$(dirname)/inc/ur_control.launch.xml">
+        <arg name="controller_config_file" value="$(arg controller_config_file)" />
+        <arg name="controllers" value="$(arg controllers)" />
+        <arg name="stopped_controllers" value="$(arg stopped_controllers)" />
+    </include>
+
 </launch>
